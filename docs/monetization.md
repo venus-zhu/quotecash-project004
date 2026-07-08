@@ -95,3 +95,12 @@ src/templates/free-design-sample.json
 - 真正的自动赚钱来自付款平台的“付款后自动发文件”，不是 GitHub Pages 本身。
 - 公开网站只放免费样例 `src/templates/free-design-sample.json`，完整 Pro 包只上传到 Gumroad / Stripe / 私域交付链接。
 - 上架和推广步骤见 `outputs/seller-launch-checklist.md`。
+## 付款成功跳转页
+
+付款平台如果支持成功后跳转，可以填：
+
+```text
+https://venus-zhu.github.io/quotecash-project004/thanks.html
+```
+
+这个页面只负责说明如何下载和导入模板，不公开完整 Pro zip。完整 zip 仍然只放在 Gumroad / Stripe / 私域交付链接里。

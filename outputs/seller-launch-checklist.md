@@ -18,7 +18,7 @@ paymentLinks: {
 }
 ```
 
-替换后重新发布 `main` 和 `gh-pages` 分支。
+替换后重新发布 `main` 和 `gh-pages` 分支。付款平台如果支持成功后跳转，填 `https://venus-zhu.github.io/quotecash-project004/thanks.html`。
 
 ## 第三步：发布推广内容
 
