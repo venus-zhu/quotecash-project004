@@ -564,6 +564,46 @@ textarea:focus {
   justify-content: center;
 }
 
+
+.thankyou-main {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.step-card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.step-card span {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.step-card h2 {
+  margin-bottom: 8px;
+}
+
+.step-card p {
+  color: var(--muted);
+}
 .offer-footer-cta {
   margin: 0;
 }
@@ -572,7 +612,8 @@ textarea:focus {
   .conversion-band,
   .offer-band,
   .pricing-grid,
-  .faq-grid {
+  .faq-grid,
+  .step-grid {
     grid-template-columns: 1fr;
   }
 
