@@ -28,7 +28,7 @@ paymentLinks: {
 
 | 产品 | 价格 | 交付物 |
 | --- | --- | --- |
-| QuoteCash Pro 模板包 | ¥39 | 设计 / 摄影 / 开发 3 套行业模板、付款条款、催款文案 |
+| QuoteCash Pro 模板包 | ¥39 | 设计 / 摄影 / 开发 / 本地服务 4 套行业模板、付款条款、催款文案 |
 | 行业定制报价单 | ¥299 起 | 替换术语、默认项目、品牌色、Logo、收款链接 |
 | 代部署到独立域名 | ¥499 起 | GitHub Pages 或独立域名部署、基础修改 |
 
@@ -90,3 +90,8 @@ src/templates/free-design-sample.json
 3. 上传 `outputs/quotecash-pro-template-pack.zip`。
 4. 商品描述复制 `outputs/pro-template-pack/listing-copy.md`。
 5. 发布后把 Gumroad 产品链接填入 `src/config.js` 的 `templatePack`。
+## 自动交付注意事项
+
+- 真正的自动赚钱来自付款平台的“付款后自动发文件”，不是 GitHub Pages 本身。
+- 公开网站只放免费样例 `src/templates/free-design-sample.json`，完整 Pro 包只上传到 Gumroad / Stripe / 私域交付链接。
+- 上架和推广步骤见 `outputs/seller-launch-checklist.md`。
