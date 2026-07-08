@@ -23,6 +23,7 @@
         <label class="file-button" for="importFile">导入</label>
         <input id="importFile" type="file" accept="application/json" />
         <button class="primary-button" id="printBtn" type="button">打印 / PDF</button>
+        <a class="primary-link" id="proHeaderCta" data-track="click_pro_header" href="./offer.html">Pro 模板包</a>
       </div>
     </header>
 
@@ -163,7 +164,20 @@
         </article>
       </section>
     </main>
+    <section class="conversion-band" aria-label="付费模板包">
+      <div>
+        <p class="eyebrow">Pro</p>
+        <h2>把免费流量接到付费模板包</h2>
+        <p>面向设计、摄影、开发和本地服务的行业报价模板，买完即可替换 Logo、配色和默认项目。</p>
+      </div>
+      <div class="conversion-actions">
+        <a class="primary-link" id="templatePackCta" data-track="click_template_pack" href="./offer.html">购买模板包</a>
+        <a class="ghost-button" id="customSetupCta" data-track="click_custom_setup" href="./offer.html">定制报价单</a>
+      </div>
+    </section>
 
+    <script src="./config.js"></script>
+    <script src="./analytics.js"></script>
     <script src="./calculator.js"></script>
     <script src="./app.js"></script>
   </body>

@@ -22,6 +22,8 @@ const defaultState = {
 
 let state = loadState();
 
+const moneyConfig = window.QuoteCashConfig || {};
+
 const els = {
   docType: document.querySelector("#docType"),
   docNumber: document.querySelector("#docNumber"),
@@ -52,6 +54,9 @@ const els = {
   previewPaymentLink: document.querySelector("#previewPaymentLink"),
   paymentCta: document.querySelector("#paymentCta"),
   previewNotes: document.querySelector("#previewNotes"),
+  templatePackCta: document.querySelector("#templatePackCta"),
+  customSetupCta: document.querySelector("#customSetupCta"),
+  proHeaderCta: document.querySelector("#proHeaderCta"),
 };
 
 function loadState() {
@@ -85,7 +90,8 @@ function documentTypeLabel() {
 
 function updateField(key, value) {
   state = { ...state, [key]: value };
-  render();
+  renderPreview();
+  saveState();
 }
 
 function updateItem(index, key, value) {
@@ -93,7 +99,8 @@ function updateItem(index, key, value) {
     itemIndex === index ? { ...item, [key]: value } : item
   );
   state = { ...state, items };
-  render();
+  renderPreview();
+  saveState();
 }
 
 function removeItem(index) {
@@ -175,10 +182,18 @@ function renderPreview() {
   els.paymentCta.setAttribute("aria-disabled", String(!hasPaymentLink));
 }
 
+function renderMonetizationLinks() {
+  const links = moneyConfig.paymentLinks || {};
+  if (els.templatePackCta && links.templatePack) els.templatePackCta.href = links.templatePack;
+  if (els.customSetupCta && links.customSetup) els.customSetupCta.href = links.customSetup;
+  if (els.proHeaderCta && links.templatePack) els.proHeaderCta.href = links.templatePack;
+}
+
 function render() {
   renderInputs();
   renderItemsEditor();
   renderPreview();
+  renderMonetizationLinks();
   saveState();
 }
 
@@ -269,7 +284,10 @@ function bindEvents() {
     render();
   });
 
-  document.querySelector("#printBtn").addEventListener("click", () => window.print());
+  document.querySelector("#printBtn").addEventListener("click", () => {
+    els.saveState.textContent = "PDF 生成后可升级行业模板";
+    window.print();
+  });
   document.querySelector("#copyMessageBtn").addEventListener("click", copyPaymentMessage);
   document.querySelector("#exportBtn").addEventListener("click", exportJson);
   document.querySelector("#importFile").addEventListener("change", (event) => {
