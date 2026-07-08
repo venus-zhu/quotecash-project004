@@ -23,6 +23,7 @@ const defaultState = {
 let state = loadState();
 
 const moneyConfig = window.QuoteCashConfig || {};
+const sampleTemplatePath = "./templates/free-design-sample.json";
 
 const els = {
   docType: document.querySelector("#docType"),
@@ -57,6 +58,8 @@ const els = {
   templatePackCta: document.querySelector("#templatePackCta"),
   customSetupCta: document.querySelector("#customSetupCta"),
   proHeaderCta: document.querySelector("#proHeaderCta"),
+  loadSampleTemplateBtn: document.querySelector("#loadSampleTemplateBtn"),
+  loadSampleTemplateBottomBtn: document.querySelector("#loadSampleTemplateBottomBtn"),
 };
 
 function loadState() {
@@ -250,13 +253,8 @@ function importJson(file) {
   reader.onload = () => {
     try {
       const parsed = JSON.parse(String(reader.result));
-      state = {
-        ...defaultState,
-        ...parsed,
-        items: Array.isArray(parsed.items) && parsed.items.length ? parsed.items : defaultState.items,
-      };
-      render();
-      els.saveState.textContent = "导入成功";
+      applyImportedState(parsed, "导入成功");
+
     } catch (error) {
       els.saveState.textContent = "导入失败：JSON 格式不正确";
     }
@@ -264,6 +262,35 @@ function importJson(file) {
   reader.readAsText(file);
 }
 
+function applyImportedState(parsed, successMessage) {
+  state = {
+    ...defaultState,
+    ...parsed,
+    items: Array.isArray(parsed.items) && parsed.items.length ? parsed.items : defaultState.items,
+  };
+  render();
+  els.saveState.textContent = successMessage;
+}
+
+function loadSampleTemplate() {
+  els.saveState.textContent = "正在载入免费样例...";
+  fetch(sampleTemplatePath)
+    .then((response) => {
+      if (!response.ok) throw new Error("sample template not found");
+      return response.json();
+    })
+    .then((parsed) => {
+      applyImportedState(parsed, "免费样例已载入，可直接修改价格和客户名");
+      if (window.gtag) {
+        window.gtag("event", "load_free_sample_template", {
+          template_path: sampleTemplatePath,
+        });
+      }
+    })
+    .catch(() => {
+      els.saveState.textContent = "样例载入失败，请下载 JSON 后导入";
+    });
+}
 function bindEvents() {
   Object.keys(defaultState).forEach((key) => {
     if (els[key] && key !== "items") {
@@ -294,6 +321,10 @@ function bindEvents() {
     const [file] = event.target.files;
     if (file) importJson(file);
     event.target.value = "";
+  });
+
+  [els.loadSampleTemplateBtn, els.loadSampleTemplateBottomBtn].forEach((button) => {
+    if (button) button.addEventListener("click", loadSampleTemplate);
   });
 }
 

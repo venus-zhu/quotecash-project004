@@ -452,13 +452,15 @@ textarea:focus {
 
 .conversion-band h2,
 .offer-band h2,
-.pricing-card h2 {
+.pricing-card h2,
+.faq-card h2 {
   margin-bottom: 8px;
 }
 
 .conversion-band p,
 .offer-band p,
-.pricing-card li {
+.pricing-card li,
+.faq-card p {
   color: var(--muted);
 }
 
@@ -523,6 +525,20 @@ textarea:focus {
   background: #ffffff;
 }
 
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.faq-card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
 .pricing-card.featured {
   border-color: var(--accent);
   box-shadow: var(--shadow);
@@ -555,7 +571,8 @@ textarea:focus {
 @media (max-width: 760px) {
   .conversion-band,
   .offer-band,
-  .pricing-grid {
+  .pricing-grid,
+  .faq-grid {
     grid-template-columns: 1fr;
   }
 
