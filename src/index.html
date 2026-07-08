@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QuoteCash - 报价单与发票生成器</title>
+    <meta
+      name="description"
+      content="一个面向自由职业者和小商户的报价单、发票、收款文案生成工具。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Project 004</p>
+        <h1>QuoteCash</h1>
+        <p class="subtitle">报价单、发票、收款链接和催款文案，一页完成。</p>
+      </div>
+      <div class="header-actions">
+        <button class="ghost-button" id="sampleBtn" type="button">示例</button>
+        <button class="ghost-button" id="exportBtn" type="button">导出</button>
+        <label class="file-button" for="importFile">导入</label>
+        <input id="importFile" type="file" accept="application/json" />
+        <button class="primary-button" id="printBtn" type="button">打印 / PDF</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="editor-panel" aria-label="编辑报价单">
+        <div class="section-head">
+          <h2>单据信息</h2>
+          <span id="saveState">已自动保存</span>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            单据类型
+            <select id="docType">
+              <option value="QUOTE">报价单</option>
+              <option value="INVOICE">发票</option>
+            </select>
+          </label>
+          <label>
+            单据编号
+            <input id="docNumber" type="text" />
+          </label>
+          <label>
+            币种
+            <select id="currency">
+              <option value="CNY">CNY</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+            </select>
+          </label>
+          <label>
+            有效 / 到期日期
+            <input id="dueDate" type="date" />
+          </label>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            你的名称
+            <input id="sellerName" type="text" placeholder="例如：晨光设计工作室" />
+          </label>
+          <label>
+            联系方式
+            <input id="sellerContact" type="text" placeholder="邮箱 / 微信 / 电话" />
+          </label>
+          <label>
+            客户名称
+            <input id="clientName" type="text" placeholder="客户或公司名" />
+          </label>
+          <label>
+            客户联系人
+            <input id="clientContact" type="text" placeholder="可选" />
+          </label>
+        </div>
+
+        <div class="line-items-head">
+          <h2>项目明细</h2>
+          <button class="ghost-button" id="addItemBtn" type="button">添加明细</button>
+        </div>
+
+        <div class="items-table" id="itemsTable" aria-label="收费项目明细"></div>
+
+        <div class="form-grid money-grid">
+          <label>
+            折扣 %
+            <input id="discountRate" type="number" min="0" step="0.01" />
+          </label>
+          <label>
+            税率 %
+            <input id="taxRate" type="number" min="0" step="0.01" />
+          </label>
+          <label>
+            收款链接
+            <input id="paymentLink" type="url" placeholder="Stripe / Gumroad / 微信收款页链接" />
+          </label>
+        </div>
+
+        <label class="wide-label">
+          备注与付款条款
+          <textarea id="notes" rows="5"></textarea>
+        </label>
+      </section>
+
+      <section class="preview-shell" aria-label="单据预览">
+        <div class="preview-toolbar">
+          <button class="ghost-button" id="copyMessageBtn" type="button">复制收款文案</button>
+          <a class="primary-link" id="paymentCta" href="#" target="_blank" rel="noreferrer">打开收款链接</a>
+        </div>
+
+        <article class="document-preview" id="documentPreview">
+          <div class="document-top">
+            <div>
+              <p class="document-brand" id="previewSeller">你的工作室</p>
+              <p id="previewSellerContact">联系方式</p>
+            </div>
+            <div class="document-meta">
+              <h2 id="previewType">报价单</h2>
+              <p id="previewNumber">NO. QC-0001</p>
+              <p id="previewDate"></p>
+            </div>
+          </div>
+
+          <div class="bill-to">
+            <p>客户</p>
+            <h3 id="previewClient">客户名称</h3>
+            <span id="previewClientContact">客户联系人</span>
+          </div>
+
+          <table class="preview-table">
+            <thead>
+              <tr>
+                <th>项目</th>
+                <th>数量</th>
+                <th>单价</th>
+                <th>小计</th>
+              </tr>
+            </thead>
+            <tbody id="previewItems"></tbody>
+          </table>
+
+          <div class="totals">
+            <div><span>小计</span><strong id="subtotalValue"></strong></div>
+            <div><span>折扣</span><strong id="discountValue"></strong></div>
+            <div><span>税费</span><strong id="taxValue"></strong></div>
+            <div class="grand-total"><span>应收合计</span><strong id="totalValue"></strong></div>
+          </div>
+
+          <div class="payment-box">
+            <p>付款方式</p>
+            <a id="previewPaymentLink" href="#" target="_blank" rel="noreferrer">填写收款链接后显示</a>
+          </div>
+
+          <div class="notes-box">
+            <p>备注</p>
+            <span id="previewNotes"></span>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./calculator.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
