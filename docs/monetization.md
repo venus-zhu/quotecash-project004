@@ -69,3 +69,24 @@ analytics: {
 ```
 
 填写后会自动加载 Google tag，并记录 Pro 入口点击事件。
+## 已生成的可售卖交付物
+
+本地已生成完整 Pro 模板包：
+
+```text
+outputs/quotecash-pro-template-pack.zip
+```
+
+这个 zip 没有提交到公开仓库，适合作为 Gumroad / 网盘 / 私域成交后的交付文件。公开站点只提供免费样例：
+
+```text
+src/templates/free-design-sample.json
+```
+
+## Gumroad 上架最短流程
+
+1. 新建数字产品，标题用“QuoteCash Pro 模板包”。
+2. 价格填 ¥39 或等值美元。
+3. 上传 `outputs/quotecash-pro-template-pack.zip`。
+4. 商品描述复制 `outputs/pro-template-pack/listing-copy.md`。
+5. 发布后把 Gumroad 产品链接填入 `src/config.js` 的 `templatePack`。

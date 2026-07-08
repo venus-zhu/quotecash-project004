@@ -5,3 +5,6 @@ dist/
 coverage/
 *.log
 work/
+
+outputs/pro-template-pack/
+outputs/quotecash-pro-template-pack.zip
