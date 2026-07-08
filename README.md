@@ -1,6 +1,7 @@
 # Project 004 - QuoteCash
 
 线上地址：https://venus-zhu.github.io/quotecash-project004/
+Pro 销售页：https://venus-zhu.github.io/quotecash-project004/offer.html
 
 QuoteCash 是一个给自由职业者、小工作室和本地服务商使用的报价单 / 发票生成器。它不需要后端，打开 `src/index.html` 就能录入项目、自动计算金额、生成可打印单据、复制收款文案，并保存为 JSON 方便下次复用。
 
@@ -29,6 +30,10 @@ E:\codex workspace\project-004-freelance-invoice-kit\src\index.html
 - 打印或另存为 PDF
 - 导出 / 导入 JSON 草稿
 - 使用 localStorage 自动保存当前内容
+
+## 自动变现设置
+
+详见 `docs/monetization.md`。核心是把真实付款链接填进 `src/config.js`，站点上的 Pro 购买按钮会自动指向该链接。
 
 ## 变现执行建议
 
