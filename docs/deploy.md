@@ -1,21 +1,25 @@
 # 发布说明
 
-## GitHub Pages 自动发布
+## 当前发布方式
 
-项目已内置 GitHub Actions 工作流：
+项目已经发布到 GitHub Pages：
 
 ```text
-.github/workflows/pages.yml
+https://venus-zhu.github.io/quotecash-project004/
 ```
 
-推送到 GitHub 仓库的 `main` 分支后，工作流会把 `src/` 目录发布为 GitHub Pages 站点。
+当前采用 `gh-pages` 分支发布。该分支根目录只包含 `src/` 里的静态站点文件：
 
-## 发布后的检查
+```text
+app.js
+calculator.js
+index.html
+styles.css
+```
 
-- 打开 GitHub 仓库的 `Settings -> Pages`
-- 确认 Source 为 `GitHub Actions`
-- 等待 `Deploy QuoteCash to GitHub Pages` 工作流完成
-- 打开 Pages 地址检查工具是否可用
+## 更新发布
+
+修改 `src/` 后，同步更新远程 `gh-pages` 分支即可发布新版。当前仓库的 `main` 分支保留完整项目文档、源码、测试和交付物。
 
 ## 本地验证
 
