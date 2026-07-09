@@ -17,6 +17,22 @@
     <meta property="og:url" content="https://venus-zhu.github.io/quotecash-project004/" />
     <meta property="og:image" content="https://venus-zhu.github.io/quotecash-project004/assets/quotecash-social-preview.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "QuoteCash",
+        "url": "https://venus-zhu.github.io/quotecash-project004/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "description": "面向自由职业者和小商户的免费报价单、发票与收款文案生成器。",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CNY"
+        }
+      }
+    </script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -185,6 +201,8 @@
         <a class="ghost-button" id="customSetupCta" data-track="click_custom_setup" href="./offer.html">定制报价单</a>
         <button class="ghost-button" id="loadSampleTemplateBottomBtn" data-track="load_free_sample_bottom" type="button">试用样例</button>
         <a class="ghost-button" data-track="download_free_sample_home" href="./templates/free-design-sample.json" download>下载样例</a>
+        <button class="ghost-button" data-share-url="./" data-share-title="QuoteCash 免费报价单工具" data-share-text="这个免费工具可以生成报价单、发票和收款文案：" data-track="share_home" type="button">分享工具</button>
+        <span class="action-status" data-share-status aria-live="polite"></span>
       </div>
     </section>
 
@@ -198,6 +216,7 @@
 
     <script src="./config.js"></script>
     <script src="./analytics.js"></script>
+    <script src="./share.js"></script>
     <script src="./calculator.js"></script>
     <script src="./app.js"></script>
   </body>

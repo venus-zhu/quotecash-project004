@@ -466,9 +466,17 @@ textarea:focus {
 
 .conversion-actions {
   display: flex;
+  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.action-status {
+  min-height: 18px;
+  color: var(--accent-dark);
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .offer-page {
