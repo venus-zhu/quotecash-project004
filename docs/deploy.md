@@ -8,14 +8,7 @@
 https://venus-zhu.github.io/quotecash-project004/
 ```
 
-当前采用 `gh-pages` 分支发布。该分支根目录只包含 `src/` 里的静态站点文件：
-
-```text
-app.js
-calculator.js
-index.html
-styles.css
-```
+当前采用 `gh-pages` 分支发布。该分支根目录镜像 `src/`，包含工具页、销售页、付款成功页、政策页、脚本、样例模板和站点索引文件。
 
 ## 更新发布
 

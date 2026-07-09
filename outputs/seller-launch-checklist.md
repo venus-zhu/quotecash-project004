@@ -34,6 +34,12 @@ Pro 销售页：
 https://venus-zhu.github.io/quotecash-project004/offer.html
 ```
 
+隐私、交付与退款规则：
+
+```text
+https://venus-zhu.github.io/quotecash-project004/policies.html
+```
+
 短文案：
 
 ```text

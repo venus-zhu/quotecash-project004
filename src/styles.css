@@ -608,6 +608,61 @@ textarea:focus {
   margin: 0;
 }
 
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px clamp(18px, 4vw, 48px);
+  border-top: 1px solid var(--line);
+  background: #ffffff;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.site-footer nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.site-footer a,
+.policy-section a {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+.policy-main {
+  width: min(880px, 100%);
+  margin: 0 auto;
+}
+
+.policy-section {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.policy-section h2 {
+  margin: 24px 0 8px;
+}
+
+.policy-section h2:first-child {
+  margin-top: 0;
+}
+
+.policy-section p,
+.policy-section li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.policy-section ul {
+  display: grid;
+  gap: 8px;
+  padding-left: 20px;
+}
 @media (max-width: 760px) {
   .conversion-band,
   .offer-band,
@@ -619,6 +674,11 @@ textarea:focus {
 
   .conversion-band {
     display: grid;
+  }
+
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .conversion-actions {
